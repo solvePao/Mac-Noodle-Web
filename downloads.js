@@ -6,7 +6,10 @@ const copyButton = document.querySelector("#copy-command");
 const installCommand = document.querySelector("#install-command");
 const formatDate = (value) => new Intl.DateTimeFormat(undefined, { dateStyle: "long" }).format(new Date(value));
 const formatSize = (bytes) => new Intl.NumberFormat(undefined, { style: "unit", unit: "megabyte", maximumFractionDigits: 1 }).format(bytes / 1_000_000);
-const packageAsset = (release) => release.assets.find((asset) => asset.name === "Mac-Noodle.zip") ?? release.assets.find((asset) => asset.name.endsWith(".zip"));
+const packageAsset = (release) => release.assets.find((asset) => asset.name === "Mac-Noodle.dmg")
+  ?? release.assets.find((asset) => asset.name.endsWith(".dmg"))
+  ?? release.assets.find((asset) => asset.name === "Mac-Noodle.zip")
+  ?? release.assets.find((asset) => asset.name.endsWith(".zip"));
 
 function renderRelease(release) {
   const asset = packageAsset(release);
@@ -33,7 +36,7 @@ function renderRelease(release) {
   if (asset) {
     const download = document.createElement("a");
     download.href = asset.browser_download_url;
-    download.textContent = "Download ZIP";
+    download.textContent = asset.name.endsWith(".dmg") ? "Download DMG" : "Download ZIP";
     links.append(download);
   }
   const notes = document.createElement("a");
