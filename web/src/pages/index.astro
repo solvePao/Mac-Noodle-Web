@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.vue';
+import Hero from '../components/Hero.vue';
+import StatsBar from '../components/StatsBar.vue';
+import FeatureCards from '../components/FeatureCards.vue';
+import CommandSection from '../components/CommandSection.vue';
+import Testimonials from '../components/Testimonials.vue';
+import ReleaseList from '../components/ReleaseList.vue';
+import FaqSection from '../components/FaqSection.vue';
+import BottomCta from '../components/BottomCta.vue';
+---
+
+<Layout title="Mac Noodle — A Mac cleaner that just works">
+  <SiteHeader client:load />
+  <main>
+    <Hero client:load />
+    <StatsBar />
+    <FeatureCards />
+    <CommandSection client:load />
+    <Testimonials />
+    <ReleaseList client:load />
+    <FaqSection client:load />
+    <BottomCta />
+  </main>
+</Layout>
