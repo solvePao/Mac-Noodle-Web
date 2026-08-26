@@ -22,7 +22,7 @@ The download site reads GitHub's public releases API, so new builds appear
 without a website commit.
 
 
-# Astro Starter Kit: Minimal
+## Astro Starter Kit: Minimal
 
 ```sh
 npm create astro@latest -- --template minimal
