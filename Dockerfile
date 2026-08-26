@@ -3,11 +3,11 @@ FROM node:lts-alpine
 WORKDIR /app
 
 # Install dependencies as a separate cached layer
-COPY web/package*.json ./web/
-RUN cd web && npm install
+COPY package*.json ./
+RUN npm install
 
 # Copy the full source (overridden by volume mount in dev)
-COPY web/ ./web/
+COPY . .
 
 # Astro / Vite dev server port
 EXPOSE 4321
@@ -16,4 +16,4 @@ EXPOSE 4321
 # (e.g. rolldown) are correct for Linux even when the host volume is mounted.
 # node_modules is shadowed by a named Docker volume in `make run`, so the
 # Linux-built node_modules are never overwritten by the host's mac binaries.
-CMD ["sh", "-c", "cd /app/web && npm install && npm run dev -- --host 0.0.0.0"]
+CMD ["sh", "-c", "npm install && npm run dev -- --host 0.0.0.0"]

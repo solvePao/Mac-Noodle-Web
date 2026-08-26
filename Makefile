@@ -11,15 +11,15 @@ build:
 	docker build -t $(IMAGE) .
 
 ## Run the container in detached mode with hot-reload.
-## The named volume $(NM_VOLUME) shadows web/node_modules so Linux-native
+## The named volume $(NM_VOLUME) shadows node_modules so Linux-native
 ## bindings (rolldown etc.) are never clobbered by the host's macOS modules.
 run:
 	docker volume create $(NM_VOLUME) >/dev/null
 	docker run -d \
 	  --name $(CONTAINER) \
 	  -p $(PORT):4321 \
-	  -v "$(PWD)/web:/app/web" \
-	  -v "$(NM_VOLUME):/app/web/node_modules" \
+	  -v "$(PWD):/app" \
+	  -v "$(NM_VOLUME):/app/node_modules" \
 	  $(IMAGE)
 	@echo ""
 	@echo "  ✓ Dev server → http://localhost:$(PORT)"
