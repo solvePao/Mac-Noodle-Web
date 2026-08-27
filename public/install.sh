@@ -2,7 +2,7 @@
 
 set -eu
 
-readonly repository="solvePao/Mac-Noodle-App"
+readonly repository="solvePao/Mac-Noodle-Web"
 readonly base_url="https://github.com/$repository/releases/latest/download"
 readonly archive_name="Mac-Noodle.zip"
 download_dir=${MAC_NOODLE_DOWNLOAD_DIR:-"$PWD"}

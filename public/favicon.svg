@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Mac Noodle">
+  <rect width="128" height="128" rx="30" fill="#3c2f2f"/>
+  <path d="M31 70h66c0 22-14 35-33 35S31 92 31 70Z" fill="#fff4e6"/>
+  <path d="M27 66h74" fill="none" stroke="#be9b7b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M45 57c-8-10 9-12 0-23M63 57c-8-10 9-12 0-23M81 57c-8-10 9-12 0-23" fill="none" stroke="#be9b7b" stroke-width="6" stroke-linecap="round"/>
+  <path d="M101 25v16M93 33h16" fill="none" stroke="#94b287" stroke-width="5" stroke-linecap="round"/>
+</svg>
