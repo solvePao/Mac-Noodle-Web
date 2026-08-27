@@ -449,7 +449,7 @@ const year = new Date().getFullYear();
 
   .stats-bar {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1px;
     overflow: hidden;
     margin-bottom: 84px;
@@ -488,9 +488,8 @@ const year = new Date().getFullYear();
     border-radius: 32px;
   }
   .features-header { max-width: 820px; margin-bottom: 46px; }
-  .features-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+  .features-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
   .feature-card {
-    grid-column: span 6;
     min-height: 250px;
     padding: 28px;
     background: var(--noodle-surface);
@@ -499,10 +498,8 @@ const year = new Date().getFullYear();
     box-shadow: var(--noodle-shadow);
     transition: transform 0.18s, border-color 0.18s;
   }
-  .feature-card:nth-child(1), .feature-card:nth-child(6) { grid-column: span 7; }
-  .feature-card:nth-child(2), .feature-card:nth-child(5) { grid-column: span 5; }
   .feature-card:first-child { background: linear-gradient(135deg, var(--noodle-bg-subtle), var(--noodle-surface) 62%); }
-  .feature-card:nth-child(4) { background: linear-gradient(135deg, var(--noodle-success-wash), var(--noodle-surface) 66%); }
+  .feature-card:nth-child(3) { background: linear-gradient(135deg, var(--noodle-success-wash), var(--noodle-surface) 66%); }
   .feature-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--noodle-accent) 42%, var(--noodle-border)); }
   .feature-icon {
     display: grid;
