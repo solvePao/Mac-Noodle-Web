@@ -4,7 +4,7 @@
       <p class="eyebrow"><i></i> Mac Noodle for macOS</p>
       <h1>Mac Noodle,<br /><span class="text-accent">ready to download.</span></h1>
       <p class="lede">
-        Get the latest DMG from GitHub Releases, use the checksum-verifying terminal helper,
+        Get the latest DMG from GitHub Releases, use the terminal helper,
         or review the source before downloading.
       </p>
       <div class="actions">
@@ -20,7 +20,6 @@
       <ul class="trust-badges">
         <li><span></span> Direct GitHub release</li>
         <li><span></span> Optional shell helper</li>
-        <li><span></span> SHA-256 verification</li>
         <li><span></span> Source on GitHub</li>
       </ul>
     </div>
@@ -47,11 +46,6 @@
             <span>Release source</span>
             <div class="clean-bar"><i style="width: 86%"></i></div>
             <strong>GitHub</strong>
-          </div>
-          <div class="clean-row">
-            <span>Integrity</span>
-            <div class="clean-bar"><i style="width: 64%"></i></div>
-            <strong>SHA-256</strong>
           </div>
           <div class="clean-row">
             <span>Alternative</span>

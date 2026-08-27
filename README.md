@@ -21,9 +21,9 @@ The following decisions describe the current implementation and should be treate
 2. **The canonical public origin is `https://macnoodle.solvepao.com/`.** Canonical metadata, Open Graph metadata, documentation, and the terminal command use this domain.
 3. **There is no releases API integration.** Download and release-history links point directly to GitHub.
 4. **On-page release history is deferred.** It can be revisited later when an API or an approved static release manifest exists.
-5. **The DMG is the current primary package.** Every release includes its SHA-256 checksum and curl installer.
+5. **The DMG is the only published package asset.** The curl installer is hosted by the website.
 6. **Testimonials are omitted.** Previous testimonials were not approved and have been removed.
-7. **Detailed product capability marketing is omitted until approved.** Current copy is limited to verifiable information about downloads, checksums, the installer, and repository links.
+7. **Detailed product capability marketing is omitted until approved.** Current copy is limited to verifiable information about downloads, the installer, and repository links.
 8. **The site uses Better University's Cappuccino theme.** It supports matching light and dark palettes based on the operating-system preference.
 
 ## Technology
@@ -44,7 +44,7 @@ The production output is fully static and is written to `dist/`.
 .
 ├── public/
 │   ├── favicon.svg       # Cappuccino-themed site icon
-│   └── install.sh        # Public download and checksum helper
+│   └── install.sh        # Public DMG installer
 ├── src/
 │   ├── components/       # Vue presentation and interaction components
 │   ├── layouts/
@@ -71,9 +71,7 @@ curl -fsSL https://macnoodle.solvepao.com/install.sh | sh
 The public script:
 
 1. Downloads `Mac-Noodle.dmg` from the latest GitHub release.
-2. Downloads `Mac-Noodle.dmg.sha256`.
-3. Verifies the disk image with macOS `shasum`.
-4. Installs `Mac Noodle.app` in `~/Applications` (or `MAC_NOODLE_INSTALL_DIR`).
+2. Installs `Mac Noodle.app` in `~/Applications` (or `MAC_NOODLE_INSTALL_DIR`).
 
 It does not request `sudo` or modify system files.
 

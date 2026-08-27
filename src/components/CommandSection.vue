@@ -29,8 +29,8 @@ const steps = [
   {
     icon: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--noodle-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
     num: '3',
-    title: 'Verify and Install',
-    desc: 'The terminal helper checks the DMG against the SHA-256 checksum before installing it.',
+    title: 'Install',
+    desc: 'The terminal helper installs the DMG in your Applications folder.',
   },
 ]
 </script>
@@ -59,7 +59,6 @@ const steps = [
       </div>
       <ul class="command-details">
         <li>Downloads the latest DMG from GitHub Releases</li>
-        <li>Verifies the published SHA-256 checksum</li>
         <li>Never asks for <code>sudo</code> — installs in <code>~/Applications</code></li>
       </ul>
     </div>

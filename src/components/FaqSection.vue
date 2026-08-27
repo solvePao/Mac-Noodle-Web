@@ -8,7 +8,7 @@ const faqs = [
   },
   {
     q: 'What does the terminal helper do?',
-    a: 'It downloads the latest DMG and checksum, verifies the disk image, then installs Mac Noodle in your Applications folder without sudo.',
+    a: 'It downloads the latest DMG, then installs Mac Noodle in your Applications folder without sudo.',
   },
   {
     q: 'Does this website use a releases API?',
