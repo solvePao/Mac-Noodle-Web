@@ -16,7 +16,7 @@ The repository intentionally focuses on distributing the current macOS release a
 
 The following decisions describe the current implementation and should be treated as the baseline for future changes:
 
-1. **Cloudflare Pages is the only website deployment target.** The legacy GitHub Pages workflow has been removed.
+1. **Cloudflare Workers Static Assets is the only website deployment target.** Cloudflare Workers Builds watches `main`, builds the Astro project, and deploys it without a repository-owned GitHub Actions workflow. The legacy GitHub Pages workflow has been removed.
 2. **The canonical public origin is `https://macnoodle.solvepao.com/`.** Canonical metadata, Open Graph metadata, documentation, and the terminal command use this domain.
 3. **There is no releases API integration.** Download and release-history links point directly to GitHub.
 4. **On-page release history is deferred.** It can be revisited later when an API or an approved static release manifest exists.
@@ -30,8 +30,9 @@ The following decisions describe the current implementation and should be treate
 - [Astro](https://astro.build/) for static site generation
 - [Vue](https://vuejs.org/) for the small interactive islands
 - [Vitest](https://vitest.dev/) and Vue Test Utils for automated tests
-- [Cloudflare Pages](https://pages.cloudflare.com/) for hosting
-- Wrangler for Pages configuration and manual deployment
+- [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) for hosting
+- Cloudflare Workers Builds for automatic deployments from `main`
+- Wrangler for deployment configuration and optional manual deployment
 - Docker as an optional development environment
 
 The production output is fully static and is written to `dist/`.
@@ -130,7 +131,7 @@ npm run astro -- dev --background --host 127.0.0.1
 | `npm run test` | Run the Vitest suite once. |
 | `npm run test:watch` | Run Vitest in watch mode. |
 | `npm run validate` | Run checks, tests, and the production build in sequence. |
-| `npm run deploy` | Build and deploy `dist/` through Cloudflare Pages. |
+| `npm run deploy` | Build and deploy `dist/` as Cloudflare Workers Static Assets. |
 | `npm run astro -- <command>` | Run another Astro CLI command. |
 
 ## Validation and test coverage
@@ -153,7 +154,8 @@ The current tests cover:
 - direct GitHub release links;
 - the canonical terminal command and clipboard behavior;
 - FAQ expansion and ARIA relationships;
-- Cloudflare Pages configuration;
+- Cloudflare Workers Static Assets configuration;
+- native Workers Builds deployment documentation;
 - absence of the legacy GitHub Pages workflow;
 - use of the custom production origin;
 - absence of the removed GitHub API client and release feed;
@@ -189,37 +191,79 @@ Dark mode follows `prefers-color-scheme`. There is no manual theme switcher.
 
 The layout also carries forward Better University's editorial composition, floating glass navigation, rounded cards, restrained gradients, and automatic light/dark presentation. The Mac Noodle favicon uses the same Cappuccino palette.
 
-## Cloudflare Pages deployment
+## Cloudflare Workers deployment
 
-Cloudflare Pages is the sole deployment path for this site.
+Cloudflare Workers Static Assets is the sole deployment target for this site. This matches the deployment model used by the personal website: Cloudflare owns the Git connection, and a push to the production branch creates a Workers Build automatically.
 
-### Pages build settings
+The site currently has no Worker entry point and no server-side API. It is an assets-only Worker: Astro generates `dist/`, and Cloudflare uploads and serves those files at the edge. A Worker entry point can be added later if the product needs redirects, request handling, an API, authentication, or proxy behavior.
+
+### Automatic deployment flow
+
+```text
+Commit and push to main
+  -> Cloudflare Workers Builds clones the repository
+  -> npm clean-install installs the locked dependencies
+  -> npm run build generates dist/
+  -> npx wrangler deploy uploads dist/
+  -> macnoodle.solvepao.com receives the new version
+```
+
+No GitHub Actions deployment workflow or repository secret is needed. The Cloudflare dashboard owns the repository connection and its build token.
+
+### Workers Builds settings
 
 | Setting | Value |
 | --- | --- |
-| Framework preset | Astro |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
+| Git repository | `solvePao/Mac-Noodle-Web` |
 | Production branch | `main` |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Version command | `npx wrangler versions upload` |
+| Root directory | `/` |
+| Build variables and secrets | None |
 | Canonical domain | `macnoodle.solvepao.com` |
 
-`wrangler.jsonc` configures the Pages project name, `dist/` output directory, schema, and compatibility date.
+`wrangler.jsonc` names the Worker and points its static-assets directory at `./dist`. It deliberately has no `main` field because there is no Worker JavaScript yet, and it deliberately has no `pages_build_output_dir` because this is not a Pages project.
 
-For a manual deployment:
+### First-time Cloudflare setup
+
+1. In Cloudflare, open **Workers & Pages** and choose **Create application**.
+2. Choose **Import a repository** for Workers, then select `solvePao/Mac-Noodle-Web`.
+3. Set the production branch and build settings to the values in the table above.
+4. Create the Worker and allow its first build to finish.
+5. Open the Worker's **Domains** tab and add `macnoodle.solvepao.com` as a custom domain.
+6. Confirm the custom domain shows the production environment and loads the deployed site.
+
+After setup, every push to `main` triggers the same path. Pull requests and non-production branches may also create preview versions if non-production branch builds are enabled in Cloudflare.
+
+### Manual deployment and validation
+
+Run the full local quality gate before deploying:
+
+```sh
+npm run validate
+```
+
+To deploy manually from an authenticated development machine:
 
 ```sh
 npm run deploy
 ```
 
-This command runs a fresh production build before invoking `wrangler pages deploy`. It requires Cloudflare authentication and access to the Pages project.
+The command performs a fresh Astro build and then runs `wrangler deploy`. Automatic production deployments should normally come from a push to `main`, keeping Cloudflare's deployment history tied to Git commits.
 
-The repository sets the website's canonical URL, but DNS and the custom-domain attachment are managed in Cloudflare and are not provisioned by this codebase.
+The repository sets the canonical URL, while the custom-domain attachment and DNS are managed in Cloudflare.
+
+### Adding Worker code later
+
+The current assets-only configuration is intentionally ready to grow. If server-side behavior becomes necessary, add a Worker source file, set `main` in `wrangler.jsonc`, and decide which paths should execute Worker code before or after static-asset matching. That future change is separate from the deferred release-history work and should include its own tests and security review.
 
 ### What is intentionally absent
 
 - No GitHub Pages workflow
-- No Workers assets deployment
-- No Pages Functions
+- No GitHub Actions deployment workflow
+- No Cloudflare Pages project or Pages configuration
+- No Worker JavaScript entry point
 - No server-side application API
 - No GitHub Releases API request from the browser
 

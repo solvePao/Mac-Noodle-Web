@@ -42,7 +42,7 @@ describe('download actions', () => {
     expect(download.text()).toContain('Download Latest')
   })
 
-  it('copies the Cloudflare Pages installer command and resets its label', async () => {
+  it('copies the Cloudflare-hosted installer command and resets its label', async () => {
     vi.useFakeTimers()
     const writeText = vi.fn().mockResolvedValue(undefined)
     Object.defineProperty(navigator, 'clipboard', {

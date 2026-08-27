@@ -15,14 +15,15 @@ function sourceFiles(directory: string): string[] {
   })
 }
 
-describe('Cloudflare Pages deployment', () => {
-  it('uses Pages configuration rather than a Workers assets deployment', () => {
+describe('Cloudflare Workers deployment', () => {
+  it('deploys the Astro output as Workers Static Assets', () => {
     const config = JSON.parse(read('wrangler.jsonc'))
     const packageJson = JSON.parse(read('package.json'))
 
-    expect(config.pages_build_output_dir).toBe('./dist')
-    expect(config.assets).toBeUndefined()
-    expect(packageJson.scripts.deploy).toContain('wrangler pages deploy')
+    expect(config.pages_build_output_dir).toBeUndefined()
+    expect(config.main).toBeUndefined()
+    expect(config.assets).toEqual({ directory: './dist' })
+    expect(packageJson.scripts.deploy).toBe('npm run build && wrangler deploy')
   })
 
   it('does not retain the GitHub Pages workflow', () => {
@@ -34,6 +35,17 @@ describe('Cloudflare Pages deployment', () => {
 
     expect(publicFiles).toContain('https://macnoodle.solvepao.com')
     expect(publicFiles).not.toContain('mac-noodle-web.pages.dev')
+    expect(publicFiles).toContain('Hosted on Cloudflare Workers')
+    expect(publicFiles).not.toContain('Hosted on Cloudflare Pages')
+  })
+
+  it('documents native Workers Builds instead of repository-owned deployment automation', () => {
+    const readme = read('README.md')
+
+    expect(readme).toContain('Workers Builds')
+    expect(readme).toContain('`npx wrangler deploy`')
+    expect(readme).not.toContain('Cloudflare Pages is the sole deployment path')
+    expect(existsSync(join(root, '.github/workflows/deploy.yml'))).toBe(false)
   })
 })
 
