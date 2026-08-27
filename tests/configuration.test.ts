@@ -31,11 +31,10 @@ describe('Cloudflare Workers deployment', () => {
   })
 
   it('uses the custom Cloudflare domain as the public origin', () => {
-    const publicFiles = [read('README.md'), read('src/layouts/Layout.astro'), read('src/components/CommandSection.vue')].join('\n')
+    const publicFiles = [read('README.md'), read('src/layouts/Layout.astro'), read('src/components/Hero.vue')].join('\n')
 
     expect(publicFiles).toContain('https://macnoodle.solvepao.com')
     expect(publicFiles).not.toContain('mac-noodle-web.pages.dev')
-    expect(publicFiles).toContain('Hosted on Cloudflare Workers')
     expect(publicFiles).not.toContain('Hosted on Cloudflare Pages')
   })
 

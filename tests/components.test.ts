@@ -1,6 +1,5 @@
-import { flushPromises, mount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import CommandSection from '../src/components/CommandSection.vue'
 import FaqSection from '../src/components/FaqSection.vue'
 import Hero from '../src/components/Hero.vue'
 import SiteHeader from '../src/components/SiteHeader.vue'
@@ -71,28 +70,6 @@ describe('download actions', () => {
     expect(download.text()).toContain('Download Latest')
   })
 
-  it('copies the Cloudflare-hosted installer command and resets its label', async () => {
-    vi.useFakeTimers()
-    const writeText = vi.fn().mockResolvedValue(undefined)
-    Object.defineProperty(navigator, 'clipboard', {
-      configurable: true,
-      value: { writeText },
-    })
-    const wrapper = mount(CommandSection)
-    const button = wrapper.get('button')
-
-    await button.trigger('click')
-    await flushPromises()
-
-    expect(writeText).toHaveBeenCalledWith(
-      'curl -fsSL https://macnoodle.solvepao.com/install.sh | sh',
-    )
-    expect(button.text()).toBe('Copied ✓')
-
-    vi.advanceTimersByTime(1800)
-    await wrapper.vm.$nextTick()
-    expect(button.text()).toBe('Copy')
-  })
 })
 
 describe('FAQ', () => {

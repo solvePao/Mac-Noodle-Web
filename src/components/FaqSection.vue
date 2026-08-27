@@ -7,10 +7,6 @@ const faqs = [
     a: 'The download buttons point directly to the latest Mac-Noodle.dmg asset in the project’s GitHub Releases.',
   },
   {
-    q: 'What does the terminal helper do?',
-    a: 'It downloads the latest DMG, then installs Mac Noodle in your Applications folder without sudo.',
-  },
-  {
     q: 'Does this website use a releases API?',
     a: 'No. Release history is deferred for now, so the website uses static GitHub links without making a release API request.',
   },

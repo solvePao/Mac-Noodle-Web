@@ -20,13 +20,7 @@ const cleanSmarterImage = cleanSmarterAsset.src
           Download Latest
           <span aria-hidden="true">→</span>
         </a>
-        <a class="button button-outline" href="#how-it-works">Install via Terminal</a>
       </div>
-      <ul class="trust-badges">
-        <li><span></span> Direct GitHub release</li>
-        <li><span></span> Optional shell helper</li>
-        <li><span></span> Source on GitHub</li>
-      </ul>
     </div>
 
     <div class="product-hero-art">

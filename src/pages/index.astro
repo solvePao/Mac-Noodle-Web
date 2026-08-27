@@ -2,10 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.vue';
 import Hero from '../components/Hero.vue';
-import StatsBar from '../components/StatsBar.vue';
 import FeatureCards from '../components/FeatureCards.vue';
 import ProductGallery from '../components/ProductGallery.vue';
-import CommandSection from '../components/CommandSection.vue';
 import FaqSection from '../components/FaqSection.vue';
 import BottomCta from '../components/BottomCta.vue';
 ---
@@ -14,10 +12,8 @@ import BottomCta from '../components/BottomCta.vue';
   <SiteHeader client:load />
   <main>
     <Hero />
-    <StatsBar />
     <FeatureCards />
     <ProductGallery />
-    <CommandSection client:load />
     <FaqSection client:load />
     <BottomCta />
   </main>

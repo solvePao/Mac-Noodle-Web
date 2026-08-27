@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title = 'Mac Noodle for macOS',
-  description = 'Download Mac Noodle for macOS from GitHub Releases or use the checksum-verifying terminal helper.',
+  description = 'Download Mac Noodle for macOS from GitHub Releases.',
   canonicalPath = '/',
 } = Astro.props;
 const canonicalUrl = new URL(canonicalPath, 'https://macnoodle.solvepao.com').toString();
@@ -20,10 +20,10 @@ const year = new Date().getFullYear();
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Download Mac Noodle for macOS from GitHub Releases or use the terminal helper." />
+    <meta name="description" content="Download Mac Noodle for macOS from GitHub Releases." />
     <meta name="theme-color" content="#3c2f2f" />
     <meta property="og:title" content="Mac Noodle — Download for macOS" />
-    <meta property="og:description" content="Download the latest DMG from GitHub Releases or install it with the terminal helper." />
+    <meta property="og:description" content="Download the latest DMG from GitHub Releases." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mac Noodle" />
     <meta property="og:url" content={canonicalUrl} />
@@ -54,7 +54,6 @@ const year = new Date().getFullYear();
         <div class="footer-links-col">
           <span class="footer-heading">Links</span>
           <a href="/#features">Options</a>
-          <a href="/#how-it-works">Install</a>
           <a href="/support">Support</a>
           <a href="https://github.com/solvePao/Mac-Noodle-Web/releases">Releases</a>
           <a href="https://github.com/solvePao/Mac-Noodle-Web">GitHub</a>
@@ -62,7 +61,6 @@ const year = new Date().getFullYear();
         <div class="footer-info-col">
           <span class="footer-heading">Contact</span>
           <a href="mailto:contact@solvepao.com">contact@solvepao.com</a>
-          <p>Hosted on Cloudflare Workers</p>
           <p>© {year} SolvePao Research</p>
         </div>
       </div>
@@ -304,27 +302,6 @@ const year = new Date().getFullYear();
     line-height: 1.75;
   }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-  .trust-badges {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px 24px;
-    max-width: 580px;
-    margin: 34px 0 0;
-    padding: 24px 0 0;
-    border-top: 1px solid var(--noodle-border);
-    color: var(--noodle-text-muted);
-    font-size: 12px;
-    list-style: none;
-  }
-  .trust-badges li { display: flex; align-items: center; gap: 9px; }
-  .trust-badges li > span {
-    width: 7px;
-    height: 7px;
-    flex-shrink: 0;
-    background: var(--noodle-success);
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px var(--noodle-success-wash);
-  }
 
   .hero-stage {
     position: relative;
@@ -488,7 +465,7 @@ const year = new Date().getFullYear();
     border-radius: 32px;
   }
   .features-header { max-width: 820px; margin-bottom: 46px; }
-  .features-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .features-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
   .feature-card {
     min-height: 250px;
     padding: 28px;
@@ -499,7 +476,7 @@ const year = new Date().getFullYear();
     transition: transform 0.18s, border-color 0.18s;
   }
   .feature-card:first-child { background: linear-gradient(135deg, var(--noodle-bg-subtle), var(--noodle-surface) 62%); }
-  .feature-card:nth-child(3) { background: linear-gradient(135deg, var(--noodle-success-wash), var(--noodle-surface) 66%); }
+  .feature-card:nth-child(2) { background: linear-gradient(135deg, var(--noodle-success-wash), var(--noodle-surface) 66%); }
   .feature-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--noodle-accent) 42%, var(--noodle-border)); }
   .feature-icon {
     display: grid;
@@ -595,7 +572,6 @@ const year = new Date().getFullYear();
     .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 74px; text-align: center; }
     .hero-copy { display: flex; flex-direction: column; align-items: center; }
     .actions { justify-content: center; }
-    .trust-badges { text-align: left; }
     .hero-stage { min-height: 570px; }
     .features { padding-inline: 34px; }
   }
@@ -643,7 +619,6 @@ const year = new Date().getFullYear();
   @media (max-width: 500px) {
     .actions { width: 100%; flex-direction: column; }
     .actions .button { width: 100%; }
-    .trust-badges { grid-template-columns: 1fr; width: 100%; }
     .cleaner-window { width: 84%; }
     .floating-card { width: 155px; }
   }

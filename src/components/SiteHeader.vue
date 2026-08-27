@@ -56,7 +56,6 @@ onMounted(() => {
     </button>
     <nav id="primary-navigation" aria-label="Primary navigation" :class="{ 'nav-visible': menuOpen }">
       <a href="/#features" @click="menuOpen = false">Options</a>
-      <a href="/#how-it-works" @click="menuOpen = false">Install</a>
       <a href="/support" @click="menuOpen = false">Support</a>
       <a href="https://github.com/solvePao/Mac-Noodle-Web/releases" target="_blank" rel="noopener">Releases</a>
       <a href="https://github.com/solvePao/Mac-Noodle-Web" target="_blank" rel="noopener">GitHub</a>
