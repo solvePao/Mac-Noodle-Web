@@ -7,6 +7,9 @@ import SiteHeader from '../src/components/SiteHeader.vue'
 
 afterEach(() => {
   vi.useRealTimers()
+  document.documentElement.removeAttribute('data-theme')
+  globalThis.localStorage?.removeItem('mac-noodle-theme')
+  vi.unstubAllGlobals()
 })
 
 describe('primary navigation', () => {
@@ -36,6 +39,25 @@ describe('primary navigation', () => {
     const support = wrapper.get('a[href="/support"]')
 
     expect(support.text()).toBe('Support')
+  })
+
+  it('defaults to light mode and lets visitors switch to dark mode', async () => {
+    const preferences = new Map<string, string>()
+    vi.stubGlobal('localStorage', {
+      getItem: (key: string) => preferences.get(key) ?? null,
+      setItem: (key: string, value: string) => preferences.set(key, value),
+      removeItem: (key: string) => preferences.delete(key),
+    })
+    const wrapper = mount(SiteHeader)
+    const themeToggle = wrapper.get('button[aria-label="Switch to dark mode"]')
+
+    expect(document.documentElement.dataset.theme).toBe('light')
+
+    await themeToggle.trigger('click')
+
+    expect(document.documentElement.dataset.theme).toBe('dark')
+    expect(preferences.get('mac-noodle-theme')).toBe('dark')
+    expect(wrapper.get('button[aria-label="Switch to light mode"]')).toBeTruthy()
   })
 })
 

@@ -81,9 +81,12 @@ describe('container context', () => {
 })
 
 describe('visual theme', () => {
-  it('uses the Better University Cappuccino palette', () => {
+  it('uses the Better University Cappuccino palette with light mode as the default', () => {
     const layout = read('src/layouts/Layout.astro')
 
+    expect(layout).toContain('<html lang="en" data-theme="light">')
+    expect(layout).toContain(':root[data-theme="dark"]')
+    expect(layout).not.toContain('@media (prefers-color-scheme: dark)')
     expect(layout).toContain('--noodle-accent: #854442')
     expect(layout).toContain('--noodle-bg: #fff4e6')
     expect(layout).toContain('--noodle-accent: #be9b7b')
