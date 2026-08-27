@@ -35,6 +35,6 @@ const menuOpen = ref(false)
       <a href="https://github.com/solvePao/Mac-Noodle-Web/releases" target="_blank" rel="noopener">Releases</a>
       <a href="https://github.com/solvePao/Mac-Noodle-Web" target="_blank" rel="noopener">GitHub</a>
     </nav>
-    <a class="header-cta" href="https://github.com/solvePao/Mac-Noodle-Web/releases/latest/download/Mac-Noodle.zip">Download</a>
+    <a class="header-cta" href="https://github.com/solvePao/Mac-Noodle-Web/releases/latest/download/Mac-Noodle.dmg">Download</a>
   </header>
 </template>

@@ -2,7 +2,7 @@
 const stats = [
   {
     icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--noodle-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-    value: 'Latest ZIP',
+    value: 'Latest DMG',
     label: 'GitHub Releases',
   },
   {
@@ -14,11 +14,6 @@ const stats = [
     icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--noodle-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
     value: 'Shell Helper',
     label: 'Optional Install',
-  },
-  {
-    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--noodle-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
-    value: 'SHA-256',
-    label: 'Archive Check',
   },
 ]
 </script>

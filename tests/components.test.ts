@@ -40,10 +40,10 @@ describe('primary navigation', () => {
 })
 
 describe('download actions', () => {
-  it('uses the static latest ZIP link in the hero', () => {
+  it('uses the static latest DMG link in the hero', () => {
     const wrapper = mount(Hero)
     const download = wrapper.get(
-      'a[href="https://github.com/solvePao/Mac-Noodle-Web/releases/latest/download/Mac-Noodle.zip"]',
+      'a[href="https://github.com/solvePao/Mac-Noodle-Web/releases/latest/download/Mac-Noodle.dmg"]',
     )
 
     expect(download.text()).toContain('Download Latest')
