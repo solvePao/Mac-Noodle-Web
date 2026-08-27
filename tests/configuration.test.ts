@@ -90,3 +90,14 @@ describe('visual theme', () => {
     expect(layout).toContain('--noodle-bg: #241b19')
   })
 })
+
+describe('support page', () => {
+  it('publishes a canonical support route with a public help channel', () => {
+    const support = read('src/pages/support.astro')
+
+    expect(support).toContain('canonicalPath="/support"')
+    expect(support).toContain('Questions?')
+    expect(support).toContain('Ask a question on GitHub')
+    expect(support).toContain('issues/new')
+  })
+})

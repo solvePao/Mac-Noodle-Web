@@ -30,6 +30,13 @@ describe('primary navigation', () => {
 
     expect(releases.text()).toBe('Releases')
   })
+
+  it('links to the support page', () => {
+    const wrapper = mount(SiteHeader)
+    const support = wrapper.get('a[href="/support"]')
+
+    expect(support.text()).toBe('Support')
+  })
 })
 
 describe('download actions', () => {

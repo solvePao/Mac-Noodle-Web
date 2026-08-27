@@ -6,7 +6,7 @@ const menuOpen = ref(false)
 
 <template>
   <header class="site-header" :class="{ 'menu-open': menuOpen }">
-    <a class="brand" href="./">
+    <a class="brand" href="/">
       <img src="/favicon.svg" alt="" width="28" height="28" class="brand-icon" />
       Mac Noodle
     </a>
@@ -29,8 +29,9 @@ const menuOpen = ref(false)
       </svg>
     </button>
     <nav id="primary-navigation" aria-label="Primary navigation" :class="{ 'nav-visible': menuOpen }">
-      <a href="#features" @click="menuOpen = false">Options</a>
-      <a href="#how-it-works" @click="menuOpen = false">Install</a>
+      <a href="/#features" @click="menuOpen = false">Options</a>
+      <a href="/#how-it-works" @click="menuOpen = false">Install</a>
+      <a href="/support" @click="menuOpen = false">Support</a>
       <a href="https://github.com/solvePao/Mac-Noodle-Web/releases" target="_blank" rel="noopener">Releases</a>
       <a href="https://github.com/solvePao/Mac-Noodle-Web" target="_blank" rel="noopener">GitHub</a>
     </nav>

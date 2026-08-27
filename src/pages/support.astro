@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteHeader from '../components/SiteHeader.vue';
+
+const supportUrl = 'https://github.com/solvePao/Mac-Noodle-Web/issues/new';
+---
+
+<Layout
+  title="Support — Mac Noodle"
+  description="Get help with downloading, verifying, or installing Mac Noodle for macOS."
+  canonicalPath="/support"
+>
+  <SiteHeader client:load />
+  <main class="support-main">
+    <section class="support-hero" aria-labelledby="support-title">
+      <div class="support-copy">
+        <p class="eyebrow"><i></i> Mac Noodle support</p>
+        <h1 id="support-title">Questions?<br /><span class="text-accent">Ask away.</span></h1>
+        <p class="lede">
+          If you are stuck while downloading, verifying, or installing Mac Noodle, tell us what
+          happened and we will help you find the next step.
+        </p>
+        <div class="actions">
+          <a class="button button-primary" href={supportUrl} target="_blank" rel="noopener">
+            Ask a question on GitHub
+            <span aria-hidden="true">→</span>
+          </a>
+          <a class="button button-outline" href="#quick-help">View quick help</a>
+        </div>
+        <p class="privacy-note">Support requests are public. Please do not include passwords or personal information.</p>
+      </div>
+
+      <aside class="support-card" aria-labelledby="include-title">
+        <span class="card-kicker">A helpful request</span>
+        <h2 id="include-title">Tell us these three things.</h2>
+        <ol>
+          <li><span>1</span><div><strong>Your macOS version</strong><small>For example, macOS 15.6.</small></div></li>
+          <li><span>2</span><div><strong>Where you got stuck</strong><small>Download, verification, or installation.</small></div></li>
+          <li><span>3</span><div><strong>What you saw</strong><small>Include the exact error message or a screenshot.</small></div></li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="quick-help" id="quick-help" aria-labelledby="quick-help-title">
+      <div class="quick-help-heading">
+        <p class="eyebrow">Quick help</p>
+        <h2 id="quick-help-title">Try the <span class="text-accent">simple fixes first.</span></h2>
+      </div>
+
+      <div class="help-grid">
+        <article class="help-card">
+          <span class="help-label">Download</span>
+          <h3>The ZIP did not download</h3>
+          <p>Open the latest release directly on GitHub and retry the Mac-Noodle.zip download.</p>
+          <a href="https://github.com/solvePao/Mac-Noodle-Web/releases" target="_blank" rel="noopener">Open releases <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="help-card">
+          <span class="help-label">Verification</span>
+          <h3>The checksum did not match</h3>
+          <p>Delete the incomplete ZIP and run the terminal helper again. Do not use a file that fails verification.</p>
+          <a href="/#how-it-works">Review terminal install <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="help-card">
+          <span class="help-label">Installation</span>
+          <h3>You have the verified ZIP</h3>
+          <p>Unzip the package, then move the application into your Applications folder manually.</p>
+          <a href="/#faq-title">Read common questions <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="support-cta" aria-labelledby="still-stuck-title">
+      <div>
+        <p class="eyebrow">Still stuck?</p>
+        <h2 id="still-stuck-title">We are ready for your question.</h2>
+        <p>Open a support request and include the three details above so we can understand the problem quickly.</p>
+      </div>
+      <a class="button button-light" href={supportUrl} target="_blank" rel="noopener">Open a support request</a>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .support-main { padding-top: 42px; }
+
+  .support-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+    align-items: center;
+    gap: clamp(42px, 7vw, 92px);
+    min-height: 650px;
+    padding: 64px 0 82px;
+  }
+
+  .support-copy .privacy-note {
+    max-width: 580px;
+    margin: 22px 0 0;
+    color: var(--noodle-text-muted);
+    font-size: 12px;
+  }
+
+  .support-card {
+    padding: clamp(28px, 4vw, 46px);
+    background:
+      radial-gradient(circle at 100% 0%, var(--noodle-bg-subtle), transparent 18rem),
+      var(--noodle-surface);
+    border: 1px solid var(--noodle-border);
+    border-radius: 30px;
+    box-shadow: var(--noodle-shadow);
+    transform: rotate(1.2deg);
+  }
+
+  .card-kicker,
+  .help-label {
+    color: var(--noodle-accent);
+    font-size: 10px;
+    font-weight: 820;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .support-card h2 {
+    margin-top: 12px;
+    font-size: clamp(32px, 4vw, 48px);
+  }
+
+  .support-card ol {
+    display: grid;
+    gap: 14px;
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .support-card li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    background: color-mix(in srgb, var(--noodle-bg) 72%, var(--noodle-surface));
+    border: 1px solid var(--noodle-border);
+    border-radius: 15px;
+  }
+
+  .support-card li > span {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    background: var(--noodle-accent);
+    border-radius: 11px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .support-card strong,
+  .support-card small { display: block; }
+  .support-card strong { font-size: 14px; }
+  .support-card small { margin-top: 2px; color: var(--noodle-text-muted); font-size: 12px; line-height: 1.5; }
+
+  .quick-help {
+    padding: 76px 64px;
+    background: color-mix(in srgb, var(--noodle-surface) 78%, transparent);
+    border: 1px solid var(--noodle-border);
+    border-radius: 32px;
+  }
+
+  .quick-help-heading { max-width: 820px; margin-bottom: 42px; }
+  .help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+  .help-card {
+    display: flex;
+    min-height: 260px;
+    padding: 28px;
+    background: var(--noodle-surface);
+    border: 1px solid var(--noodle-border);
+    border-radius: 22px;
+    box-shadow: var(--noodle-shadow);
+    flex-direction: column;
+  }
+
+  .help-card h3 { margin: 24px 0 8px; font-size: 20px; line-height: 1.2; letter-spacing: -0.03em; }
+  .help-card p { margin: 0; color: var(--noodle-text-muted); font-size: 14px; line-height: 1.7; }
+  .help-card a { margin-top: auto; padding-top: 26px; color: var(--noodle-accent); font-size: 13px; font-weight: 760; text-decoration: none; }
+  .help-card a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  .support-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 48px;
+    margin: 80px 0 96px;
+    padding: 54px 58px;
+    background:
+      radial-gradient(circle at 88% 10%, rgba(190, 155, 123, 0.22), transparent 28rem),
+      var(--noodle-bg-dark);
+    border-radius: 28px;
+    color: #fff4e6;
+  }
+
+  .support-cta .eyebrow { color: #be9b7b; border-color: rgba(190, 155, 123, 0.26); background: rgba(190, 155, 123, 0.12); }
+  .support-cta h2 { max-width: 670px; font-size: clamp(36px, 5vw, 56px); }
+  .support-cta p:not(.eyebrow) { max-width: 680px; margin: 16px 0 0; color: #be9b7b; font-size: 15px; }
+  .support-cta .button { flex-shrink: 0; }
+
+  @media (max-width: 960px) {
+    .support-hero { grid-template-columns: 1fr; min-height: 0; }
+    .support-card { max-width: 650px; transform: none; }
+    .help-grid { grid-template-columns: 1fr; }
+    .help-card { min-height: 220px; }
+  }
+
+  @media (max-width: 760px) {
+    .support-main { padding-top: 18px; }
+    .support-hero { padding: 54px 0 66px; }
+    .quick-help { padding: 54px 20px; border-radius: 24px; }
+    .support-cta { align-items: stretch; flex-direction: column; margin: 64px 0 72px; padding: 46px 24px; border-radius: 24px; }
+    .support-cta .button { width: 100%; }
+  }
+</style>

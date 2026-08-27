@@ -1,9 +1,16 @@
 ---
 interface Props {
   title?: string;
+  description?: string;
+  canonicalPath?: string;
 }
 
-const { title = 'Mac Noodle for macOS' } = Astro.props;
+const {
+  title = 'Mac Noodle for macOS',
+  description = 'Download Mac Noodle for macOS from GitHub Releases or use the checksum-verifying terminal helper.',
+  canonicalPath = '/',
+} = Astro.props;
+const canonicalUrl = new URL(canonicalPath, 'https://macnoodle.solvepao.com').toString();
 const year = new Date().getFullYear();
 ---
 <!doctype html>
@@ -11,14 +18,14 @@ const year = new Date().getFullYear();
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Download Mac Noodle for macOS from GitHub Releases or use the checksum-verifying terminal helper." />
+    <meta name="description" content={description} />
     <meta name="theme-color" content="#3c2f2f" />
-    <meta property="og:title" content="Mac Noodle — Download for macOS" />
-    <meta property="og:description" content="Download the latest ZIP from GitHub Releases or use the checksum-verifying terminal helper." />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mac Noodle" />
-    <meta property="og:url" content="https://macnoodle.solvepao.com/" />
-    <link rel="canonical" href="https://macnoodle.solvepao.com/" />
+    <meta property="og:url" content={canonicalUrl} />
+    <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -36,8 +43,9 @@ const year = new Date().getFullYear();
         </div>
         <div class="footer-links-col">
           <span class="footer-heading">Links</span>
-          <a href="#features">Options</a>
-          <a href="#how-it-works">Install</a>
+          <a href="/#features">Options</a>
+          <a href="/#how-it-works">Install</a>
+          <a href="/support">Support</a>
           <a href="https://github.com/solvePao/Mac-Noodle-Web/releases">Releases</a>
           <a href="https://github.com/solvePao/Mac-Noodle-Web">GitHub</a>
         </div>
