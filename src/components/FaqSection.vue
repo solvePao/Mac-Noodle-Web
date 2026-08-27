@@ -3,24 +3,20 @@ import { ref } from 'vue'
 
 const faqs = [
   {
-    q: 'Is Mac Noodle free?',
-    a: 'Yes — 100% free and open source. No trials, no subscriptions, no hidden fees. Ever.',
+    q: 'Where does the download come from?',
+    a: 'The download buttons point directly to the latest Mac-Noodle.zip asset in the project’s GitHub Releases.',
   },
   {
-    q: 'Is it safe to use?',
-    a: 'Absolutely. Every build is notarized by Apple, code-signed, and verified with a SHA-256 checksum. The full source code is public on GitHub for anyone to audit.',
+    q: 'What does the terminal helper do?',
+    a: 'It downloads the latest ZIP and SHA256SUMS.txt, verifies the archive, and leaves the verified ZIP in your current directory.',
   },
   {
-    q: 'How does it work?',
-    a: 'Run a scan, review the results, then clean with one click. Mac Noodle never deletes anything without your explicit approval.',
+    q: 'Does this website use a releases API?',
+    a: 'No. Release history is deferred for now, so the website uses static GitHub links without making a release API request.',
   },
   {
-    q: 'Where do I get it?',
-    a: 'Download the latest build directly from this page, or install via the terminal command in the Install section above.',
-  },
-  {
-    q: 'What macOS versions are supported?',
-    a: 'Mac Noodle supports macOS 12 (Monterey) and later, including macOS Sequoia.',
+    q: 'Where can I review the source?',
+    a: 'Use the GitHub links in the header or footer to open the public project repository.',
   },
 ]
 
@@ -49,6 +45,7 @@ function toggle(i: number) {
           type="button"
           @click="toggle(i)"
           :aria-expanded="openIndex === i"
+          :aria-controls="`faq-answer-${i}`"
         >
           <span class="faq-question">{{ f.q }}</span>
           <svg
@@ -65,7 +62,11 @@ function toggle(i: number) {
             <polyline points="6 9 12 15 18 9" />
           </svg>
         </button>
-        <div class="faq-answer" v-show="openIndex === i">
+        <div
+          class="faq-answer"
+          :id="`faq-answer-${i}`"
+          v-show="openIndex === i"
+        >
           <p>{{ f.a }}</p>
         </div>
       </div>

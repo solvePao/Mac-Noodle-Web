@@ -14,6 +14,8 @@ const menuOpen = ref(false)
       class="menu-toggle"
       type="button"
       aria-label="Toggle menu"
+      aria-controls="primary-navigation"
+      :aria-expanded="menuOpen"
       @click="menuOpen = !menuOpen"
     >
       <svg v-if="!menuOpen" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -26,12 +28,12 @@ const menuOpen = ref(false)
         <line x1="6" y1="6" x2="18" y2="18" />
       </svg>
     </button>
-    <nav aria-label="Primary navigation" :class="{ 'nav-visible': menuOpen }">
-      <a href="#features" @click="menuOpen = false">Features</a>
+    <nav id="primary-navigation" aria-label="Primary navigation" :class="{ 'nav-visible': menuOpen }">
+      <a href="#features" @click="menuOpen = false">Options</a>
       <a href="#how-it-works" @click="menuOpen = false">Install</a>
-      <a href="#releases" @click="menuOpen = false">Releases</a>
-      <a href="https://github.com/solvePao/Mac-Noodle-App" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/solvePao/Mac-Noodle-Web/releases" target="_blank" rel="noopener">Releases</a>
+      <a href="https://github.com/solvePao/Mac-Noodle-Web" target="_blank" rel="noopener">GitHub</a>
     </nav>
-    <a class="header-cta" href="https://github.com/solvePao/Mac-Noodle-App/releases/latest">Download Free</a>
+    <a class="header-cta" href="https://github.com/solvePao/Mac-Noodle-Web/releases/latest/download/Mac-Noodle.zip">Download</a>
   </header>
 </template>

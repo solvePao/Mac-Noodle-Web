@@ -5,21 +5,17 @@ import Hero from '../components/Hero.vue';
 import StatsBar from '../components/StatsBar.vue';
 import FeatureCards from '../components/FeatureCards.vue';
 import CommandSection from '../components/CommandSection.vue';
-import Testimonials from '../components/Testimonials.vue';
-import ReleaseList from '../components/ReleaseList.vue';
 import FaqSection from '../components/FaqSection.vue';
 import BottomCta from '../components/BottomCta.vue';
 ---
 
-<Layout title="Mac Noodle — A Mac cleaner that just works">
+<Layout title="Mac Noodle — Download for macOS">
   <SiteHeader client:load />
   <main>
-    <Hero client:load />
+    <Hero />
     <StatsBar />
     <FeatureCards />
     <CommandSection client:load />
-    <Testimonials />
-    <ReleaseList client:load />
     <FaqSection client:load />
     <BottomCta />
   </main>

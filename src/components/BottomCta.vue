@@ -1,14 +1,14 @@
 <template>
   <section class="bottom-cta">
     <div class="bottom-cta-inner">
-      <h2>Your Mac, but <span class="text-accent-light">cleaner.</span></h2>
+      <h2>Get <span class="text-accent-light">Mac Noodle.</span></h2>
       <p class="bottom-cta-text">
-        Free, open source, and notarized by Apple. What are you waiting for?
+        Download the latest ZIP or review the project repository first.
       </p>
       <div class="bottom-cta-actions">
         <a
           class="button button-light"
-          href="https://github.com/solvePao/Mac-Noodle-App/releases/latest"
+          href="https://github.com/solvePao/Mac-Noodle-Web/releases/latest/download/Mac-Noodle.zip"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -19,7 +19,7 @@
         </a>
         <a
           class="button button-ghost"
-          href="https://github.com/solvePao/Mac-Noodle-App"
+          href="https://github.com/solvePao/Mac-Noodle-Web"
           target="_blank"
           rel="noopener"
         >

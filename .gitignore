@@ -2,6 +2,7 @@
 dist/
 # generated types
 .astro/
+.wrangler/
 
 # dependencies
 node_modules/
@@ -24,3 +25,6 @@ pnpm-debug.log*
 .idea/
 .vscode
 notepad/
+
+# Local repository review memory
+/MEMORY.md

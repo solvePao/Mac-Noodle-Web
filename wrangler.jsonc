@@ -1,8 +1,6 @@
 {
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "mac-noodle-web",
-  "compatibility_date": "2026-08-26",
-  "assets": {
-    "directory": "./dist"
-  }
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-08-27"
 }
-
