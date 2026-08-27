@@ -4,13 +4,13 @@
       <p class="eyebrow"><i></i> Mac Noodle for macOS</p>
       <h1>Mac Noodle,<br /><span class="text-accent">ready to download.</span></h1>
       <p class="lede">
-        Get the latest ZIP from GitHub Releases, use the checksum-verifying terminal helper,
+        Get the latest DMG from GitHub Releases, use the checksum-verifying terminal helper,
         or review the source before downloading.
       </p>
       <div class="actions">
         <a
           class="button button-primary"
-          href="https://github.com/solvePao/Mac-Noodle-Web/releases/latest/download/Mac-Noodle.zip"
+          href="https://github.com/solvePao/Mac-Noodle-Web/releases/latest/download/Mac-Noodle.dmg"
         >
           Download Latest
           <span aria-hidden="true">→</span>
@@ -41,7 +41,7 @@
           <h3>Choose how to get<br />Mac Noodle.</h3>
           <div class="scan-total">
             <span>Download package</span>
-            <strong>ZIP</strong>
+            <strong>DMG</strong>
           </div>
           <div class="clean-row">
             <span>Release source</span>

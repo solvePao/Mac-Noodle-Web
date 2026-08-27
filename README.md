@@ -6,8 +6,9 @@ The repository intentionally focuses on distributing the current macOS release a
 
 ## Public endpoints
 
+<<<<<<< HEAD
 - Website: <https://macnoodle.solvepao.com/>
-- Latest ZIP: <https://github.com/solvePao/Mac-Noodle-Web/releases/latest/download/Mac-Noodle.zip>
+- Latest DMG: <https://github.com/solvePao/Mac-Noodle-Web/releases/latest/download/Mac-Noodle.dmg>
 - Release history: <https://github.com/solvePao/Mac-Noodle-Web/releases>
 - Source repository: <https://github.com/solvePao/Mac-Noodle-Web>
 - Installer script: <https://macnoodle.solvepao.com/install.sh>
@@ -20,7 +21,7 @@ The following decisions describe the current implementation and should be treate
 2. **The canonical public origin is `https://macnoodle.solvepao.com/`.** Canonical metadata, Open Graph metadata, documentation, and the terminal command use this domain.
 3. **There is no releases API integration.** Download and release-history links point directly to GitHub.
 4. **On-page release history is deferred.** It can be revisited later when an API or an approved static release manifest exists.
-5. **The ZIP is the current primary package.** DMG publishing and support are outside the current scope.
+5. **The DMG is the current primary package.** Every release includes its SHA-256 checksum and curl installer.
 6. **Testimonials are omitted.** Previous testimonials were not approved and have been removed.
 7. **Detailed product capability marketing is omitted until approved.** Current copy is limited to verifiable information about downloads, checksums, the installer, and repository links.
 8. **The site uses Better University's Cappuccino theme.** It supports matching light and dark palettes based on the operating-system preference.
@@ -69,20 +70,18 @@ curl -fsSL https://macnoodle.solvepao.com/install.sh | sh
 
 The public script:
 
-1. Downloads `Mac-Noodle.zip` from the latest GitHub release.
-2. Downloads the release's `SHA256SUMS.txt`.
-3. Finds the checksum entry for `Mac-Noodle.zip`.
-4. Calculates the local archive's SHA-256 checksum with macOS `shasum`.
-5. Stops with an error when the entry is missing or the checksums differ.
-6. Leaves the verified ZIP and checksum file in the current directory.
+1. Downloads `Mac-Noodle.dmg` from the latest GitHub release.
+2. Downloads `Mac-Noodle.dmg.sha256`.
+3. Verifies the disk image with macOS `shasum`.
+4. Installs `Mac Noodle.app` in `~/Applications` (or `MAC_NOODLE_INSTALL_DIR`).
 
-It does not request `sudo`, move an application into `/Applications`, or modify system files. After verification, the user unzips the package and moves the app manually.
+It does not request `sudo` or modify system files.
 
-To download into another directory, pass `MAC_NOODLE_DOWNLOAD_DIR` to the shell that runs the script:
+To install into another directory, pass `MAC_NOODLE_INSTALL_DIR` to the shell that runs the script:
 
 ```sh
 curl -fsSL https://macnoodle.solvepao.com/install.sh |
-  MAC_NOODLE_DOWNLOAD_DIR="$HOME/Downloads" sh
+  MAC_NOODLE_INSTALL_DIR="$HOME/Applications" sh
 ```
 
 ## Local development
@@ -319,7 +318,6 @@ The following items are deliberately not part of the current implementation:
 - an on-page release history;
 - a GitHub Releases API client or another release API;
 - a static release manifest integration;
-- DMG publishing or DMG download links;
 - testimonials; and
 - unapproved detailed product marketing.
 

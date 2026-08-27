@@ -4,11 +4,11 @@ import { ref } from 'vue'
 const faqs = [
   {
     q: 'Where does the download come from?',
-    a: 'The download buttons point directly to the latest Mac-Noodle.zip asset in the project’s GitHub Releases.',
+    a: 'The download buttons point directly to the latest Mac-Noodle.dmg asset in the project’s GitHub Releases.',
   },
   {
     q: 'What does the terminal helper do?',
-    a: 'It downloads the latest ZIP and SHA256SUMS.txt, verifies the archive, and leaves the verified ZIP in your current directory.',
+    a: 'It downloads the latest DMG and checksum, verifies the disk image, then installs Mac Noodle in your Applications folder without sudo.',
   },
   {
     q: 'Does this website use a releases API?',

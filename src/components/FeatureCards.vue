@@ -3,7 +3,7 @@ const features = [
   {
     icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--noodle-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>',
     title: 'Direct Release Download',
-    desc: 'The main download button points to the latest Mac-Noodle.zip asset published in GitHub Releases.',
+    desc: 'The main download button points to the latest Mac-Noodle.dmg asset published in GitHub Releases.',
   },
   {
     icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--noodle-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
