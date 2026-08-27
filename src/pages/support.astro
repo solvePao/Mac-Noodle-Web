@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.vue';
 
 const supportUrl = 'https://github.com/solvePao/Mac-Noodle-Web/issues/new';
+const supportEmail = 'contact@solvepao.com';
 ---
 
 <Layout
@@ -21,13 +22,18 @@ const supportUrl = 'https://github.com/solvePao/Mac-Noodle-Web/issues/new';
           happened and we will help you find the next step.
         </p>
         <div class="actions">
-          <a class="button button-primary" href={supportUrl} target="_blank" rel="noopener">
-            Ask a question on GitHub
+          <a class="button button-primary" href={`mailto:${supportEmail}`}>
+            Email support
             <span aria-hidden="true">→</span>
           </a>
-          <a class="button button-outline" href="#quick-help">View quick help</a>
+          <a class="button button-outline" href={supportUrl} target="_blank" rel="noopener">
+            Ask on GitHub
+          </a>
         </div>
-        <p class="privacy-note">Support requests are public. Please do not include passwords or personal information.</p>
+        <p class="privacy-note">
+          Contact <a href={`mailto:${supportEmail}`}>{supportEmail}</a> for support or questions.
+          GitHub requests are public, so please do not include passwords or personal information there.
+        </p>
       </div>
 
       <aside class="support-card" aria-labelledby="include-title">
@@ -75,9 +81,9 @@ const supportUrl = 'https://github.com/solvePao/Mac-Noodle-Web/issues/new';
       <div>
         <p class="eyebrow">Still stuck?</p>
         <h2 id="still-stuck-title">We are ready for your question.</h2>
-        <p>Open a support request and include the three details above so we can understand the problem quickly.</p>
+        <p>Email us with the three details above so SolvePao Research can understand the problem quickly.</p>
       </div>
-      <a class="button button-light" href={supportUrl} target="_blank" rel="noopener">Open a support request</a>
+      <a class="button button-light" href={`mailto:${supportEmail}`}>Email {supportEmail}</a>
     </section>
   </main>
 </Layout>

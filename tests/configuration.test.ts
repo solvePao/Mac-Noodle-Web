@@ -91,13 +91,40 @@ describe('visual theme', () => {
   })
 })
 
+describe('product artwork', () => {
+  it('uses the supplied app icon and marketing visuals', () => {
+    const hero = read('src/components/Hero.vue')
+    const gallery = read('src/components/ProductGallery.vue')
+    const header = read('src/components/SiteHeader.vue')
+
+    expect(existsSync(join(root, 'assets/4A035189-C821-4892-B2C4-FE461C30127B.png'))).toBe(true)
+    expect(existsSync(join(root, 'assets/29FAE49F-DEF2-4403-9C96-CA1C60329E99.png'))).toBe(true)
+    expect(hero).toContain('cleanSmarterAsset.src')
+    expect(gallery).toContain('storageOverviewAsset.src')
+    expect(gallery).toContain('reclaimableSpaceAsset.src')
+    expect(gallery).toContain('controlAsset.src')
+    expect(header).toContain('appIconAsset.src')
+  })
+})
+
 describe('support page', () => {
-  it('publishes a canonical support route with a public help channel', () => {
+  it('publishes a canonical support route with email and public help channels', () => {
     const support = read('src/pages/support.astro')
 
     expect(support).toContain('canonicalPath="/support"')
     expect(support).toContain('Questions?')
-    expect(support).toContain('Ask a question on GitHub')
+    expect(support).toContain('contact@solvepao.com')
+    expect(support).toContain('SolvePao Research')
     expect(support).toContain('issues/new')
+  })
+})
+
+describe('company attribution', () => {
+  it('identifies SolvePao Research as Mac Noodle\'s parent company', () => {
+    const layout = read('src/layouts/Layout.astro')
+
+    expect(layout).toContain('A product of SolvePao Research.')
+    expect(layout).toContain('mailto:contact@solvepao.com')
+    expect(layout).toContain('© {year} SolvePao Research')
   })
 })

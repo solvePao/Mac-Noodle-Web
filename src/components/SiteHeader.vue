@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import appIconAsset from '../../assets/4A035189-C821-4892-B2C4-FE461C30127B.png'
 
 const menuOpen = ref(false)
+const appIcon = appIconAsset.src
 </script>
 
 <template>
   <header class="site-header" :class="{ 'menu-open': menuOpen }">
     <a class="brand" href="/">
-      <img src="/favicon.svg" alt="" width="28" height="28" class="brand-icon" />
+      <img :src="appIcon" alt="" width="28" height="28" class="brand-icon" />
       Mac Noodle
     </a>
     <button

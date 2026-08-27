@@ -1,4 +1,6 @@
 ---
+import appIcon from '../../assets/4A035189-C821-4892-B2C4-FE461C30127B.png';
+
 interface Props {
   title?: string;
   description?: string;
@@ -27,6 +29,7 @@ const year = new Date().getFullYear();
     <meta property="og:url" content={canonicalUrl} />
     <link rel="canonical" href={canonicalUrl} />
     <title>{title}</title>
+    <link rel="icon" type="image/png" href={appIcon.src} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
@@ -36,10 +39,10 @@ const year = new Date().getFullYear();
       <div class="footer-inner">
         <div class="footer-brand-col">
           <span class="footer-brand">
-            <img src="/favicon.svg" alt="" width="24" height="24" />
+            <img src={appIcon.src} alt="" width="24" height="24" />
             Mac Noodle
           </span>
-          <p class="footer-tagline">Downloads, installation helper, and project links.</p>
+          <p class="footer-tagline">A product of SolvePao Research.</p>
         </div>
         <div class="footer-links-col">
           <span class="footer-heading">Links</span>
@@ -50,10 +53,10 @@ const year = new Date().getFullYear();
           <a href="https://github.com/solvePao/Mac-Noodle-Web">GitHub</a>
         </div>
         <div class="footer-info-col">
-          <span class="footer-heading">System</span>
-          <p>Static Astro website</p>
+          <span class="footer-heading">Contact</span>
+          <a href="mailto:contact@solvepao.com">contact@solvepao.com</a>
           <p>Hosted on Cloudflare Workers</p>
-          <p>© {year} solvePao</p>
+          <p>© {year} SolvePao Research</p>
         </div>
       </div>
     </footer>
@@ -568,6 +571,8 @@ const year = new Date().getFullYear();
   .footer-links-col a { color: var(--noodle-text-muted); font-size: 13px; text-decoration: none; }
   .footer-links-col a:hover { color: var(--noodle-accent); }
   .footer-info-col p { margin: 0; color: var(--noodle-text-muted); font-size: 12px; }
+  .footer-info-col a { color: var(--noodle-text-muted); font-size: 13px; text-decoration: none; }
+  .footer-info-col a:hover { color: var(--noodle-accent); }
 
   @media (max-width: 960px) {
     .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 74px; text-align: center; }
