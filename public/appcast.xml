@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Mac Noodle</title>
+        <item>
+            <title>1.0.5</title>
+            <pubDate>Tue, 08 Sep 2026 12:23:10 -0700</pubDate>
+            <sparkle:version>46</sparkle:version>
+            <sparkle:shortVersionString>1.0.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink sparkle:edSignature="5g+miPa3s60thrIqYJlDQIf6DoXM2LUe21+49enEzt62gZ7EwLoz8oCN7CXQ2k2UCG6pz7ul/i+wpq/97d+JDA==" sparkle:length="303">https://solvepao.github.io/Mac-Noodle-Web/Mac-Noodle.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/solvePao/Mac-Noodle-Web/releases/download/v1.0.5-xcode-cloud.46/Mac-Noodle.zip" length="5934271" type="application/octet-stream" sparkle:edSignature="34+uWnW8PZkinSxDfeB++bk375YfZuueY7IK1G+SKp2vEjon5BK2QMMiRrYk+X+sJjv46yEIgXH63cEz3AXBCw=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: FvpTfLR0ZpioNLXLCAdwo3eqJXrC9nCOZrVLYfXIXDvhWkQoVFv9b0c4fq22ROaOvRNUcfm3Cp08X9iVJdvLDQ==
+length: 1314
+-->
