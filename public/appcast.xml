@@ -7,6 +7,15 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         <title>Mac Noodle</title>
         <item>
             <title>1.0.5</title>
+            <pubDate>Fri, 11 Sep 2026 01:56:44 -0700</pubDate>
+            <sparkle:version>65</sparkle:version>
+            <sparkle:shortVersionString>1.0.5</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <sparkle:releaseNotesLink sparkle:edSignature="3CilWmn5FU6K5K3wnK5YdoZMYDqjnDJ/H3296AUEyqQKuqFT3eCz6arNjwhLXGytec3cQwM1ZmNF90hbXtD6Cw==" sparkle:length="303">https://solvepao.github.io/Mac-Noodle-Web/Mac-Noodle.md</sparkle:releaseNotesLink>
+            <enclosure url="https://github.com/solvePao/Mac-Noodle-Web/releases/download/v1.0.5-xcode-cloud.65/Mac-Noodle.zip" length="5940670" type="application/octet-stream" sparkle:edSignature="C1Lr996nGxnnyH1yKZ0Hfy5/S3lf4gxPfVAOxmh98fnFlxI7HMzFNUrZhVoMnN0RJBqDn/s38/8pO4UDxL5NAQ=="/>
+        </item>
+        <item>
+            <title>1.0.5</title>
             <pubDate>Wed, 09 Sep 2026 07:32:28 -0700</pubDate>
             <sparkle:version>63</sparkle:version>
             <sparkle:shortVersionString>1.0.5</sparkle:shortVersionString>
@@ -23,18 +32,9 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
             <sparkle:releaseNotesLink sparkle:edSignature="N08Jo/yeLfpVbUh7YO307EuyNuHPGubjN2sQ4E6niJ4+NXz0livlt6SbiI51oZXaHwa42LFI+PWQ01m6DZvkAg==" sparkle:length="303">https://solvepao.github.io/Mac-Noodle-Web/Mac-Noodle.md</sparkle:releaseNotesLink>
             <enclosure url="https://github.com/solvePao/Mac-Noodle-Web/releases/download/v1.0.5-xcode-cloud.61/Mac-Noodle.zip" length="5932045" type="application/octet-stream" sparkle:edSignature="Q2d1dMCl/HokFY0fDbx/xG6w2bBkMDpUQDJ1Rxz6aZFILuLxpuVNHPHJXJ2FpZc4G+xKgL6uxzK/7llsOU8CCw=="/>
         </item>
-        <item>
-            <title>1.0.5</title>
-            <pubDate>Tue, 08 Sep 2026 14:27:36 -0700</pubDate>
-            <sparkle:version>60</sparkle:version>
-            <sparkle:shortVersionString>1.0.5</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="MaUFQt7F3AjcoQeS7YTTjFugPakJmh5uEAEYEUXK39jZYqgoUdukSAXM1dsqe4E+k6qYFcSOR9ZyfoAE0B8LDQ==" sparkle:length="303">https://solvepao.github.io/Mac-Noodle-Web/Mac-Noodle.md</sparkle:releaseNotesLink>
-            <enclosure url="https://github.com/solvePao/Mac-Noodle-Web/releases/download/v1.0.5-xcode-cloud.60/Mac-Noodle.zip" length="5934273" type="application/octet-stream" sparkle:edSignature="qHvSmeR23zYYx+hxEjplIthw5aWE5Sz3wiWMXHJ9bczfaUoU6mks9G7d6nWRTt1KxgYU0uZDXkRQ2o4ilIWyCg=="/>
-        </item>
     </channel>
 </rss>
 <!-- sparkle-signatures:
-edSignature: BXzzyHzSVPggWSnS7hel4/h7KzbD4g8nHT0WN0yHT2c/8s/BRE3a7KYddVS0/6ONcyXng5xm3g6lL6qPdVBnCw==
+edSignature: xL1lpuy2oq+ToUphx7lIqPCOQTHd0c6cufku+vTjb8qWTrH6Ve/a1KwTAN1gf3BQqiVoWsD6/yCcXBpJofWnAw==
 length: 3050
 -->
